@@ -9,7 +9,7 @@
 - Distributed LLM training and optimization on GPU/NPU clusters (DP/TP/PP, mixed precision, profiling-driven performance tuning).
 
 ## Education
-**B.Eng., Computer Science and Technology**, Nanchang University (Double First-Class), China  
+**B.Eng., Computer Science and Technology**, Nanchang University (Double First-Class, Honour Degree), China  
 *Sep 2017 – Jun 2021*  
 Selected coursework: Data Structures, Computer Networks, Operating Systems, Computer Architecture, Database Systems, Compiler Principles, Linux Programming.
 
@@ -24,6 +24,26 @@ Selected coursework: Data Structures, Computer Networks, Operating Systems, Comp
 *Jul 2021 – Oct 2023*
 
 ## Selected Research & Engineering Projects
+
+### Streaming Serving System for Flow-Matching-Based Text-to-Speech (RA, [CUHK(SZ) Speech Lab])
+*(Mar 2026 – Present)*
+- Designing and building the first continuous-batching streaming serving system
+  targeting flow-matching / diffusion-based multi-stage TTS pipelines
+  (e.g., F5-TTS, Matcha-TTS, Vevo), addressing a gap left by LLM-backbone-
+  oriented systems such as VoxServe.
+- Proposed a **cascaded stage-aware scheduler** for the three-stage
+  pipeline (hidden encoder → flow-matching mel decoder → vocoder), with
+  priority policies that account for per-request ODE-step progress and
+  chunk-level streaming state, jointly optimizing TTFA and throughput.
+- Designed a **cross-step batch merging** strategy inspired by StreamDiffusion:
+  mel chunks from different requests at different ODE denoising steps are
+  merged into a single GPU batch, enabling higher utilization than naive
+  request-level dynamic batching.
+- Implemented dual-platform inference backends: NVIDIA GPUs and Ascend NPUs, with a unified graph-
+  mode method to maximize kernel fusion and portability.
+- Benchmarked the system on F5-TTS and Matcha-TTS under varying concurrency;
+  demonstrated significant TTFA reduction and throughput improvement over
+  baseline sequential.
 
 ### Direct Preference Optimization (DPO/RLHF) for Vevo Zero-Shot Voice Imitation (Current on-going)
 *(Feb 2026 – Present)*  
